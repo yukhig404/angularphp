@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ja" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <title>名簿</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-resource.min.js"></script>
+  <script src="controller.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+  <table border="1">
+    <tr><th>ID</th><th>名前</th><th>年齢</th><th>コメント</th></tr>
+    <tr ng-controller="DetailCtrl" ng-repeat="student in students">
+      <td>{{student.id}}</td>
+      <td><input ng-model="student.name"></td>
+      <td><input ng-model="student.age"></td>
+      <td><input ng-model="student.comment"></td>
+      <td><button ng-click="update()">更新</button></td>
+      <td><button ng-click="delete($index)">削除</button></td>
+    </tr>
+  </table>
+  <button ng-click="add()">追加</button>
+</body>
+</html>
